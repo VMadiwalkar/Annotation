@@ -2,10 +2,13 @@ package com.example.annotation
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -15,7 +18,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
 
+
         setContentView(R.layout.activity_main)
+        btnGreen.setOnClickListener(){
+            Log.d("Main","Red Clicked");
+            drawing.changeStroke(Color.GREEN)
+
+        }
+
+        btnRed.setOnClickListener(){
+            drawing.changeStroke(Color.RED)
+        }
 
        /*val bitmap: Bitmap = Bitmap.createBitmap(500,500,Bitmap.Config.ARGB_8888)
         val v: View = Annotate(applicationContext)

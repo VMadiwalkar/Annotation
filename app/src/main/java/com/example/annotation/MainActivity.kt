@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
             Log.d("Main","Red Clicked");
             drawing.changeStroke(Color.GREEN)
 
+
+        }
+        btnErase.setOnClickListener(){
+            drawing.clear()
         }
 
         btnRed.setOnClickListener(){

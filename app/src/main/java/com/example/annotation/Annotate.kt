@@ -76,6 +76,15 @@ class Annotate: View{
                 return true
                 }
             MotionEvent.ACTION_MOVE -> {
+
+
+
+
+
+
+
+
+
                 if (pointX != null && pointY != null) {
 
                     mPath.lineTo(pointX,pointY)
@@ -83,9 +92,17 @@ class Annotate: View{
                 //return true
             }
             MotionEvent.ACTION_UP -> {
-                this.addPath(true)
-                if(mOldX == pointX && mOldY == pointY)
-                    this.mPath.addCircle(pointX,pointY,10f, Path.Direction.CW)
+
+                if (isErase){
+                    mPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+                }
+                mCanvas.drawPath(mPath, mPaint);
+                mPath.reset();
+                mPaint.xfermode = null;
+
+//                this.addPath(true)
+//                if(mOldX == pointX && mOldY == pointY)
+//                    this.mPath.addCircle(pointX,pointY,10f, Path.Direction.CW)
             }
             else -> return false
 
@@ -103,16 +120,28 @@ class Annotate: View{
         super.onDraw(canvas)
         var i :Int = 0
         while(i  < mPaths.size ) {
-            canvas?.drawPath(mPaths.get(i), mPaints.get(i))
+            canvas?.drawBitmap(mBitmap,0f,0f,mPaint);
+            canvas?.drawPath(mPaths[i], mPaints[i])
             i++
         }
 
     }
 
+
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
-        mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        mCanvas =  Canvas(mBitmap);
+
+
+            super.onSizeChanged(w, h, oldw, oldh);
+            mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+            mCanvas = Canvas(mBitmap);
+
+
+    }
+    fun clear(){
+           mPaint.color = Color.TRANSPARENT
+        isErase = true
+
     }
 
 

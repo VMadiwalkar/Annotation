@@ -31,7 +31,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Green"/>
+        <Button
+            android:layout_width="0dp"
+            android:text="erase"
+            android:id="@+id/btnErase"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
+
 </LinearLayout>

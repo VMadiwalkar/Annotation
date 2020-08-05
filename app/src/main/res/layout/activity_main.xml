@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">>
 
-    <com.example.annotation.Annotate
+    <com.example.annotation.SimpleDrawingView
         android:id="@+id/drawing"
         android:background="@drawable/download"
         android:layout_width="wrap_content"
@@ -20,25 +20,77 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_weight="1"
             android:id="@+id/btnRed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Red"/>
-        <Button
             android:layout_weight="1"
+            android:background="#F44336"
+            android:onClick="setPencilColor" />
+
+        <Button
             android:id="@+id/btnGreen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Green"/>
-        <Button
-            android:layout_width="0dp"
-            android:text="erase"
-            android:id="@+id/btnErase"
             android:layout_weight="1"
-            android:layout_height="wrap_content"/>
+            android:background="#4CAF50"
+            android:onClick="setPencilColor" />
+
+        <Button
+            android:id="@+id/btnGreen2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#0B36D8"
+            android:onClick="setPencilColor" />
+
+        <Button
+            android:id="@+id/btnGreen3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFEB3B"
+            android:onClick="setPencilColor" />
+
+        <Button
+            android:id="@+id/btnGreen4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#E91E63"
+            android:onClick="setPencilColor" />
+
+        <Button
+            android:id="@+id/btnGreen5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#673AB7"
+            android:onClick="setPencilColor" />
+
+        <Button
+            android:id="@+id/btnErase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:onClick="setEraseMode"
+            android:text="erase" />
+
 
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Width"
+        android:layout_height="wrap_content"></TextView>
+
+    <SeekBar
+        android:id="@+id/strokeWidthSelector"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="10" />
 
 </LinearLayout>

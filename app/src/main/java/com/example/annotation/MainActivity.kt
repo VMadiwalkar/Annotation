@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    //These methods are attached directly in xml
     fun setEraseMode(view: View) {
         drawing?.setMode(SimpleDrawingView.DrawingMode.ERASER)
     }
@@ -62,6 +63,10 @@ class MainActivity : AppCompatActivity() {
         val color = (view.background as? ColorDrawable)?.color ?: Color.BLACK
         drawing?.setMode(SimpleDrawingView.DrawingMode.ERASER)
         drawing?.setPencilColor(color)
+    }
+
+    fun undoChanges(view: View) {
+        drawing?.undoAllChanges()
     }
 
 

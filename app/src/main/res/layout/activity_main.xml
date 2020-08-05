@@ -76,6 +76,14 @@
             android:onClick="setEraseMode"
             android:text="erase" />
 
+        <Button
+            android:id="@+id/btnErase2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#4A03A9F4"
+            android:onClick="undoChanges"
+            android:text="undo" />
 
 
     </LinearLayout>
